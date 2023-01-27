@@ -1,0 +1,95 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta rel="stylesheet" href="{% static '/css/styles.css' %}">
+    <title>Django Project</title>
+    <style>
+        body {
+            background: #202020;
+            color: whitesmoke;
+        }
+        
+        .navbar {
+            background-color: #404040;
+            padding: 20px 0;
+        }
+        
+        .navbar ul {
+            display: flex;
+            justify-content: space-between;
+            list-style: none;
+        }
+        
+        .navbar ul li {
+            padding: 15px;
+        }
+        
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 30px;
+            margin: 15px;
+        }
+        
+        .navbar ul li a:hover {
+            color: aquamarine;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px 0;
+        }
+        
+        .card {
+            background-color: whitesmoke;
+            color: black;
+            padding: 20px;
+            margin-bottom: 2px;
+        }
+        
+        .input {
+            background-color: wheat;
+            padding: 10px;
+            text-align: center;
+            display: block;
+        }
+    </style>
+</head>
+
+<body class="">
+    <nav class="navbar container">
+        <ul>
+            <li>
+                <a href="{% url 'home' %}">Home</a>
+            </li>
+            <li>
+                <a href="{% url 'about' %}">About</a>
+            </li>
+            <li>
+                <a href="{% url 'projects' %}">Projects</a>
+            </li>
+            <li>
+                <a href="{% url 'create_project' %}">Create Project</a>
+            </li>
+            <li>
+                <a href="{% url 'tasks' %}">Tasks</a>
+            </li>
+            <li>
+                <a href="{% url 'create_task' %}">Create Task</a>
+            </li>
+        </ul>
+    </nav>
+    <main class="container">
+        {% block content %} {% endblock %}
+    </main>
+    <script src="{% static '/js/app.js' %}"></script>
+</body>
+
+</html>
